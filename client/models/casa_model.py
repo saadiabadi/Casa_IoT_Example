@@ -12,7 +12,7 @@ model_arch = {
     'Dense': [72, 'relu'],
     'Dense1': [50, 'relu'],
     'Dense2': [36, 'relu'],
-    'Dense3': [28, 'relu']
+    'Dense3': [28, 'relu'],
     'Dense4': [10, 'softmax']
 }
 
