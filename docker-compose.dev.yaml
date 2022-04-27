@@ -1,6 +1,6 @@
 version: '3.3'
 services:
-  client:
+  client1:
     environment:
       - GET_HOSTS_FROM=dns
     image: "casa:latest"
@@ -9,5 +9,17 @@ services:
     working_dir: /app
     command: /bin/bash -c "fedn run client -in client.yaml"
     volumes:
-      - ./data:/app/data
+      - ./data/casa14/c2:/app/data
       - ./client.yaml:/app/client.yaml
+  client2:
+    environment:
+      - GET_HOSTS_FROM=dns
+    image: "casa:latest"
+    build:
+      context: .
+    working_dir: /app
+    command: /bin/bash -c "fedn run client -in client.yaml"
+    volumes:
+      - ./data/casa14/c3:/app/data
+      - ./client.yaml:/app/client.yaml
+

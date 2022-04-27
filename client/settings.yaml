@@ -2,5 +2,5 @@
 test_size: 0.25
 # Parameters for local training
 batch_size: 32
-epochs: 2
-trained_Layers: 2
+epochs: 1
+trained_Layers: 1

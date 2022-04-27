@@ -25,7 +25,11 @@ def create_seed_model(trainedLayers=0):
 
     if trainedLayers > 0:
         randomlist = random.sample(range(0, len(model_arch)), trainedLayers)
+
+        print(" ---------------Trained layers------- ", flush=True)
         print(randomlist, flush=True)
+        print(" --------------------------------------- ", flush=True)
+
 
         with open('/app/layers.txt', '+a') as f:
             print(randomlist, file=f)
@@ -50,11 +54,10 @@ def create_seed_model(trainedLayers=0):
                       optimizer=tensorflow.keras.optimizers.Adam(), metrics=['accuracy'])
 
         print(" --------------------------------------- ", flush=True)
-        print(" ------------------MODEL CREATED------------------ ", flush=True)
+        print(" ------------------Partial MODEL CREATED------------------ ", flush=True)
         print(" --------------------------------------- ", flush=True)
 
     else:
-
 ####### Original model
         model = Sequential()
         model.add(LSTM(100, input_shape=(1, 36)))
@@ -67,9 +70,8 @@ def create_seed_model(trainedLayers=0):
                       optimizer=tensorflow.keras.optimizers.Adam(),
                       metrics=['accuracy'])
 
-    print(" --------------------------------------- ", flush=True)
-    print(" ------------------MODEL CREATED------------------ ", flush=True)
-    print(" --------------------------------------- ", flush=True)
 
-
+        print(" --------------------------------------- ", flush=True)
+        print(" ------------------Full MODEL CREATED------------------ ", flush=True)
+        print(" --------------------------------------- ", flush=True)
     return model
